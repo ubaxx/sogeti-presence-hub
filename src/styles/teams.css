@@ -1,0 +1,340 @@
+/* ================================= */
+/* GLOBAL */
+/* ================================= */
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: #f3f2f1;
+}
+
+/* ================================= */
+/* ROOT LAYOUT */
+/* ================================= */
+
+.teams-root {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.teams-rail {
+  width: 68px;
+  background: #2b2c33;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  flex-shrink: 0;
+}
+
+.teams-rail-logo {
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.teams-rail-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.rail-icon {
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  color: white;
+  opacity: 0.7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.rail-icon:hover {
+  background: rgba(255, 255, 255, 0.08);
+  opacity: 1;
+}
+
+.rail-icon.active {
+  border-left: 3px solid #6264a7;
+  padding-left: 5px;
+  opacity: 1;
+}
+
+.teams-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: #f3f2f1;
+}
+
+.teams-header {
+  height: 50px;
+  background: #2b2c33;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+  flex-shrink: 0;
+}
+
+.teams-search-wrapper {
+  display: flex;
+  align-items: center;
+  background: #3b3c42;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+.teams-search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  margin-left: 6px;
+}
+
+.teams-header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.teams-user-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #6264a7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.teams-content {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+  padding: 20px;
+  background: #f3f2f1;
+}
+
+/* ================================= */
+/* STATUS BAR */
+/* ================================= */
+
+.status-bar {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 14px;
+}
+
+.status-text {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.status-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.status-btn {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.status-btn.office {
+  background: #e8f5ec;
+  color: #107c41;
+}
+
+.status-btn.remote {
+  background: #fff4e5;
+  color: #d83b01;
+}
+
+.status-btn.client {
+  background: #e5f1fb;
+  color: #0078d4;
+}
+
+.status-btn.home {
+  background: #f3f2f1;
+  color: #444;
+}
+
+.status-btn:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+/* ================================= */
+/* MODAL */
+/* ================================= */
+
+.presence-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.presence-modal-card {
+  width: 420px;
+  max-width: calc(100vw - 24px);
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.presence-modal-header {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.presence-modal-icon {
+  width: 42px;
+  height: 42px;
+  background: #6264a7;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+}
+
+.presence-modal-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.presence-modal-subtitle {
+  font-size: 13px;
+  color: #666;
+}
+
+.presence-modal-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.presence-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.option-title {
+  font-weight: 600;
+}
+
+.option-sub {
+  font-size: 12px;
+  color: #666;
+}
+
+.presence-option.office {
+  background: #e8f5ec;
+  color: #107c41;
+}
+
+.presence-option.remote {
+  background: #fff4e5;
+  color: #d83b01;
+}
+
+.presence-option.client {
+  background: #e5f1fb;
+  color: #0078d4;
+}
+
+.presence-option:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.97);
+}
+
+/* ================================= */
+/* DARK MODE */
+/* ================================= */
+
+body.dark {
+  background: #1f1f1f;
+  color: #ffffff;
+}
+
+body.dark .teams-main,
+body.dark .teams-content {
+  background: #1f1f1f;
+}
+
+body.dark .status-bar {
+  background: #2b2c33;
+  border-color: #3f3f46;
+  color: #ffffff;
+}
+
+body.dark .presence-modal-card {
+  background: #2b2c33;
+  color: white;
+}
+
+body.dark .option-sub {
+  color: #aaa;
+}
+
+body.dark .presence-option.office {
+  background: rgba(16, 124, 65, 0.2);
+}
+
+body.dark .presence-option.remote {
+  background: rgba(216, 59, 1, 0.2);
+}
+
+body.dark .presence-option.client {
+  background: rgba(0, 120, 212, 0.2);
+}
+
+body.dark .status-btn.office {
+  background: rgba(16, 124, 65, 0.2);
+  color: #4cd964;
+}
+
+body.dark .status-btn.remote {
+  background: rgba(216, 59, 1, 0.2);
+  color: #ff8c42;
+}
+
+body.dark .status-btn.client {
+  background: rgba(0, 120, 212, 0.2);
+  color: #4aa3ff;
+}
+
+body.dark .status-btn.home {
+  background: #3b3c42;
+  color: #ccc;
+}

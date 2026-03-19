@@ -1,0 +1,27 @@
+.heatmap{
+  display:flex;
+  gap:6px;
+  margin-top:10px;
+}
+
+.heatmap-cell{
+  width:18px;
+  height:18px;
+  border-radius:4px;
+}
+
+.heat-low{
+  background:#e5f5e0;
+}
+
+.heat-medium{
+  background:#a1d99b;
+}
+
+.heat-high{
+  background:#41ab5d;
+}
+
+.heat-peak{
+  background:#006d2c;
+}

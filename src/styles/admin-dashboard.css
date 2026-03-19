@@ -1,0 +1,198 @@
+.admin-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* HEADER */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-title {
+  margin: 0;
+  font-size: 24px;
+}
+
+.admin-subtitle {
+  font-size: 13px;
+  color: #666;
+}
+
+/* BUTTONS */
+.admin-actions button {
+  background: #6264a7;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+/* EMERGENCY */
+.admin-emergency-banner.low {
+  background: rgba(255, 165, 0, 0.15);
+  color: #d97706;
+}
+
+.admin-emergency-banner.high {
+  background: rgba(196, 49, 75, 0.15);
+  color: #c4314b;
+}
+
+/* KPI */
+.admin-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.admin-card {
+  background: white;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+}
+
+.admin-card span {
+  color: #666;
+  font-size: 12px;
+}
+
+.admin-card strong {
+  font-size: 20px;
+}
+
+/* FILTER */
+.admin-filters {
+  display: flex;
+  gap: 10px;
+}
+
+.admin-filters input,
+.admin-filters select {
+  padding: 8px;
+  border-radius: 8px;
+}
+
+/* TABLE */
+.admin-row {
+  display: grid;
+  grid-template-columns: 1fr 120px 120px 140px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.admin-head {
+  font-weight: bold;
+}
+
+/* BUTTON STATES */
+.admin-row button {
+  background: #6264a7;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px;
+}
+
+.admin-row button.remove {
+  background: #c4314b;
+}
+
+/* EMERGENCY */
+.danger {
+  background: #c4314b;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* DARK MODE */
+body.dark .admin-card {
+  background: #1f1f1f;
+  border: 1px solid #333;
+}
+
+body.dark .admin-subtitle,
+body.dark .admin-card span {
+  color: #aaa;
+}
+/* ========================= */
+/* DARK MODE ROOT */
+/* ========================= */
+
+body.dark {
+  background: #121212;
+  color: #e5e5e5;
+}
+
+/* ========================= */
+/* CARDS */
+/* ========================= */
+
+body.dark .admin-card {
+  background: #1e1e1e;
+  border: 1px solid #2c2c2c;
+  color: #e5e5e5;
+}
+
+/* TEXT */
+body.dark .admin-title {
+  color: #ffffff;
+}
+
+body.dark .admin-subtitle {
+  color: #a0a0a0;
+}
+
+body.dark .admin-card span {
+  color: #a0a0a0;
+}
+
+body.dark .admin-card strong {
+  color: #ffffff;
+}
+
+/* TABLE */
+body.dark .admin-row {
+  border-bottom: 1px solid #2c2c2c;
+}
+
+body.dark .admin-head {
+  color: #ffffff;
+}
+
+body.dark .admin-row span {
+  color: #d0d0d0;
+}
+
+/* INPUTS */
+body.dark .admin-filters input,
+body.dark .admin-filters select {
+  background: #2a2a2a;
+  color: white;
+  border: 1px solid #444;
+}
+
+/* BUTTONS */
+body.dark .admin-row button {
+  background: #6264a7;
+  color: white;
+}
+
+body.dark .admin-row button.remove {
+  background: #c4314b;
+}
+
+/* EMERGENCY BANNER */
+body.dark .admin-emergency-banner.low {
+  background: rgba(255, 165, 0, 0.1);
+  color: #fbbf24;
+}
+
+body.dark .admin-emergency-banner.high {
+  background: rgba(255, 80, 80, 0.1);
+  color: #f87171;
+}
