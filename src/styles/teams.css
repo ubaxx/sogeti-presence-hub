@@ -16,32 +16,119 @@ body {
   display: flex;
   height: 100vh;
   width: 100%;
+  overflow: hidden;
 }
 
 .teams-rail {
-  width: 68px;
-  background: #2b2c33;
+  width: 104px;
+  background:
+    radial-gradient(circle at top, rgba(98, 100, 167, 0.18), transparent 26%),
+    linear-gradient(180deg, #24262f 0%, #1d1f27 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 10px;
+  padding: 14px 0 10px;
   flex-shrink: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.04);
 }
 
 .teams-rail-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 26px;
+  padding: 0 10px;
   color: white;
+  text-align: center;
+}
+
+.teams-brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.teams-brand-logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.22));
+}
+
+.teams-companion-mark {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  opacity: 0.98;
+}
+
+.teams-companion-back {
+  position: absolute;
+  left: 2px;
+  top: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  background: rgba(139, 141, 240, 0.5);
+}
+
+.teams-companion-front {
+  position: absolute;
+  left: 8px;
+  top: 1px;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #6264a7 0%, #7c7fe5 100%);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+.teams-companion-dot {
+  position: absolute;
+  right: 1px;
+  bottom: 4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #c7c9ff;
+}
+
+.teams-rail-brand-title {
+  font-size: 13px;
   font-weight: 700;
-  font-size: 18px;
-  margin-bottom: 25px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+.teams-rail-brand-subtitle {
+  margin-top: 4px;
+  font-size: 10px;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .teams-rail-icons {
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 16px;
+  padding: 8px 0;
 }
 
 .rail-icon {
+  position: relative;
   width: 40px;
   height: 40px;
   font-size: 22px;
@@ -51,18 +138,47 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 12px;
+  transition: background-color 0.18s ease, opacity 0.18s ease, transform 0.18s ease;
 }
 
 .rail-icon:hover {
   background: rgba(255, 255, 255, 0.08);
   opacity: 1;
+  transform: translateY(-1px);
 }
 
 .rail-icon.active {
-  border-left: 3px solid #6264a7;
-  padding-left: 5px;
+  background: linear-gradient(135deg, rgba(98, 100, 167, 0.34), rgba(0, 112, 173, 0.28));
+  box-shadow: inset 0 0 0 1px rgba(154, 215, 255, 0.18);
   opacity: 1;
+}
+
+.rail-icon-badge {
+  position: absolute;
+  top: 4px;
+  right: 3px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: #ff4f7a;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 16px;
+  text-align: center;
+  box-shadow: 0 0 0 2px #24262f;
+}
+
+.rail-icon-badge-emergency {
+  min-width: 10px;
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  line-height: 10px;
+  background: #d92d20;
+  box-shadow: 0 0 0 2px #24262f;
 }
 
 .teams-main {
@@ -70,26 +186,109 @@ body {
   min-width: 0;
   display: flex;
   flex-direction: column;
-  background: #f3f2f1;
+  background: linear-gradient(180deg, #eef1f7 0%, #f7f8fb 100%);
+  position: relative;
 }
 
 .teams-header {
-  height: 50px;
-  background: #2b2c33;
+  min-height: 64px;
+  background:
+    radial-gradient(circle at top left, rgba(98, 100, 167, 0.18), transparent 22%),
+    linear-gradient(90deg, #262833 0%, #2d3040 55%, #253448 100%);
   color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 22px;
   flex-shrink: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.16);
+  backdrop-filter: blur(18px);
+  position: relative;
+  z-index: 20;
+}
+
+.teams-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.teams-header-lockup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  padding: 4px 10px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.teams-header-logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.18));
+}
+
+.teams-companion-mark.header {
+  width: 26px;
+  height: 26px;
+}
+
+.teams-companion-mark.header .teams-companion-back {
+  left: 1px;
+  top: 4px;
+  width: 17px;
+  height: 17px;
+}
+
+.teams-companion-mark.header .teams-companion-front {
+  left: 6px;
+  top: 1px;
+  width: 18px;
+  height: 18px;
+  font-size: 11px;
+}
+
+.teams-app-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.teams-app-kicker {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.teams-app-name {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .teams-search-wrapper {
   display: flex;
   align-items: center;
-  background: #3b3c42;
-  padding: 6px 10px;
-  border-radius: 4px;
+  min-width: min(420px, 38vw);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 12px;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  transition: border-color 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.teams-search-wrapper:focus-within {
+  border-color: rgba(199, 201, 255, 0.38);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 0 3px rgba(199, 201, 255, 0.12);
 }
 
 .teams-search-input {
@@ -98,6 +297,7 @@ body {
   background: transparent;
   color: white;
   margin-left: 6px;
+  width: 100%;
 }
 
 .teams-header-right {
@@ -106,23 +306,447 @@ body {
   gap: 14px;
 }
 
+.darkmode-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.teams-header .theme-label {
+  color: #ffffff;
+}
+
+.teams-header-icon {
+  color: rgba(255, 255, 255, 0.82);
+  cursor: pointer;
+}
+
 .teams-user-avatar {
-  width: 30px;
-  height: 30px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  background: #6264a7;
+  background: linear-gradient(135deg, #6264a7 0%, #0070ad 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 600;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.24);
+}
+
+.teams-user-avatar-photo {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.teams-user-avatar-fallback {
+  opacity: 0;
 }
 
 .teams-content {
   flex: 1;
   min-width: 0;
   overflow-y: auto;
-  padding: 20px;
-  background: #f3f2f1;
+  padding: 24px;
+  background:
+    radial-gradient(circle at top right, rgba(98, 100, 167, 0.08), transparent 28%),
+    radial-gradient(circle at top left, rgba(0, 112, 173, 0.08), transparent 22%),
+    linear-gradient(180deg, #eff1f7 0%, #f7f7fa 100%);
+}
+
+.teams-chat-panel {
+  position: absolute;
+  top: 78px;
+  left: 132px;
+  width: 360px;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 120px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(98, 100, 167, 0.14);
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
+  backdrop-filter: blur(18px);
+  z-index: 50;
+}
+
+.teams-chat-nudge {
+  position: absolute;
+  top: 86px;
+  right: 22px;
+  width: 320px;
+  max-width: calc(100vw - 32px);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid rgba(98, 100, 167, 0.14);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 20px 44px rgba(15, 23, 42, 0.16);
+  backdrop-filter: blur(18px);
+  text-align: left;
+  z-index: 45;
+  animation: teamsNudgeIn 0.28s ease-out;
+}
+
+.teams-emergency-nudge {
+  position: absolute;
+  top: 86px;
+  right: 22px;
+  width: 340px;
+  max-width: calc(100vw - 32px);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid rgba(180, 35, 24, 0.18);
+  border-radius: 18px;
+  background: rgba(255, 247, 245, 0.98);
+  box-shadow: 0 20px 44px rgba(180, 35, 24, 0.16);
+  backdrop-filter: blur(18px);
+  text-align: left;
+  z-index: 46;
+  animation: teamsNudgeIn 0.28s ease-out;
+}
+
+.teams-chat-nudge-main {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.teams-emergency-nudge-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #d92d20 0%, #b42318 100%);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.teams-emergency-nudge-pill {
+  min-height: 20px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: rgba(217, 45, 32, 0.12);
+  color: #b42318;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.teams-chat-nudge-close {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.04);
+  color: #4b5563;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.teams-chat-nudge-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6264a7 0%, #0070ad 100%);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.teams-chat-nudge-body {
+  min-width: 0;
+  flex: 1;
+}
+
+.teams-chat-nudge-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.teams-chat-nudge-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.teams-chat-nudge-pill {
+  min-height: 20px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: rgba(255, 79, 122, 0.12);
+  color: #c4314b;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.teams-chat-nudge-text {
+  margin-top: 3px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #4b5563;
+}
+
+.teams-chat-nudge-subtext {
+  margin-top: 5px;
+  font-size: 11px;
+  line-height: 1.45;
+  color: #6b7280;
+}
+
+.teams-chat-panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 18px 12px;
+  border-bottom: 1px solid rgba(107, 114, 128, 0.12);
+}
+
+.teams-chat-panel-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.teams-chat-panel-subtitle {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.teams-chat-close {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #d9dce7;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #4b5563;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.teams-chat-reminder-card {
+  display: flex;
+  gap: 12px;
+  margin: 0 18px 14px;
+  padding: 14px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(98, 100, 167, 0.12), rgba(0, 112, 173, 0.08));
+  border: 1px solid rgba(98, 100, 167, 0.16);
+}
+
+.teams-chat-reminder-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: #6264a7;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.teams-chat-reminder-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.teams-chat-reminder-text {
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #4b5563;
+}
+
+.teams-chat-reminder-button {
+  margin-top: 10px;
+  min-height: 34px;
+  padding: 0 14px;
+  border: 1px solid #6264a7;
+  border-radius: 10px;
+  background: #6264a7;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.teams-chat-list {
+  padding: 0 10px 12px;
+  overflow-y: auto;
+}
+
+.teams-chat-item {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  border: none;
+  border-radius: 14px;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+.teams-chat-item:hover {
+  background: rgba(98, 100, 167, 0.08);
+  transform: translateX(2px);
+}
+
+.teams-chat-item.unread {
+  background: rgba(98, 100, 167, 0.08);
+}
+
+.teams-chat-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6264a7 0%, #0070ad 100%);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.teams-chat-body {
+  min-width: 0;
+  flex: 1;
+}
+
+.teams-chat-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.teams-chat-sender {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.teams-chat-time {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.teams-chat-preview {
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #4b5563;
+}
+
+.teams-idle-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.42);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 70;
+}
+
+.teams-idle-card {
+  width: min(420px, calc(100vw - 24px));
+  padding: 24px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid rgba(98, 100, 167, 0.14);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.24);
+}
+
+@keyframes teamsNudgeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.teams-idle-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.teams-idle-text {
+  margin: 10px 0 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #4b5563;
+}
+
+.teams-idle-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.teams-idle-button {
+  min-height: 40px;
+  padding: 0 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.teams-idle-button.secondary {
+  border: 1px solid #d9dce7;
+  background: #ffffff;
+  color: #1f2937;
+}
+
+.teams-idle-button.primary {
+  border: 1px solid #6264a7;
+  background: #6264a7;
+  color: #ffffff;
 }
 
 /* ================================= */
@@ -290,6 +914,240 @@ body.dark {
 body.dark .teams-main,
 body.dark .teams-content {
   background: #1f1f1f;
+}
+
+body.dark .teams-rail {
+  background:
+    radial-gradient(circle at top, rgba(139, 141, 240, 0.14), transparent 24%),
+    linear-gradient(180deg, #1b1d24 0%, #14161c 100%);
+  border-right-color: rgba(255, 255, 255, 0.06);
+}
+
+body.dark .teams-brand-lockup,
+body.dark .teams-header-lockup {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+body.dark .teams-header {
+  background:
+    radial-gradient(circle at top left, rgba(139, 141, 240, 0.12), transparent 22%),
+    linear-gradient(90deg, #1d2028 0%, #252935 55%, #1b2737 100%);
+}
+
+body.dark .teams-content {
+  background:
+    radial-gradient(circle at top right, rgba(139, 141, 240, 0.1), transparent 28%),
+    radial-gradient(circle at top left, rgba(74, 163, 255, 0.08), transparent 24%),
+    linear-gradient(180deg, #18191f 0%, #1f1f1f 100%);
+}
+
+body.dark .rail-icon-badge {
+  box-shadow: 0 0 0 2px #1b1d24;
+}
+
+body.dark .rail-icon-badge-emergency {
+  box-shadow: 0 0 0 2px #1b1d24;
+}
+
+body.dark .teams-chat-panel {
+  background: rgba(37, 39, 48, 0.96);
+  border-color: rgba(139, 141, 240, 0.18);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
+}
+
+body.dark .teams-chat-nudge {
+  background: rgba(37, 39, 48, 0.96);
+  border-color: rgba(139, 141, 240, 0.18);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.28);
+}
+
+body.dark .teams-emergency-nudge {
+  background: rgba(59, 35, 38, 0.96);
+  border-color: rgba(255, 138, 128, 0.2);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.32);
+}
+
+body.dark .teams-chat-nudge-close {
+  background: rgba(255, 255, 255, 0.06);
+  color: #c5cad5;
+}
+
+body.dark .teams-chat-panel-title,
+body.dark .teams-chat-reminder-title,
+body.dark .teams-chat-sender,
+body.dark .teams-chat-nudge-title {
+  color: #f3f4f6;
+}
+
+body.dark .teams-chat-panel-subtitle,
+body.dark .teams-chat-reminder-text,
+body.dark .teams-chat-time,
+body.dark .teams-chat-preview,
+body.dark .teams-chat-nudge-text,
+body.dark .teams-chat-nudge-subtext {
+  color: #c5cad5;
+}
+
+body.dark .teams-chat-nudge-pill {
+  background: rgba(255, 107, 129, 0.16);
+  color: #ff9db0;
+}
+
+body.dark .teams-emergency-nudge-pill {
+  background: rgba(255, 138, 128, 0.16);
+  color: #ffb4ab;
+}
+
+body.dark .teams-chat-close {
+  background: #30323b;
+  border-color: #444857;
+  color: #f3f4f6;
+}
+
+body.dark .teams-chat-reminder-card {
+  background: linear-gradient(135deg, rgba(139, 141, 240, 0.18), rgba(0, 112, 173, 0.14));
+  border-color: rgba(139, 141, 240, 0.2);
+}
+
+body.dark .teams-chat-item:hover,
+body.dark .teams-chat-item.unread {
+  background: rgba(139, 141, 240, 0.12);
+}
+
+body.dark .teams-idle-overlay {
+  background: rgba(2, 6, 23, 0.62);
+}
+
+body.dark .teams-idle-card {
+  background: #2b2c33;
+  border-color: #444857;
+}
+
+body.dark .teams-idle-title {
+  color: #f3f4f6;
+}
+
+body.dark .teams-idle-text {
+  color: #c5cad5;
+}
+
+body.dark .teams-idle-button.secondary {
+  background: #30323b;
+  border-color: #444857;
+  color: #f3f4f6;
+}
+
+body.dark .teams-search-wrapper {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+body.dark .teams-rail-brand-subtitle,
+body.dark .teams-app-kicker {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+@media (max-width: 900px) {
+  .teams-rail {
+    width: 84px;
+  }
+
+  .teams-rail-brand {
+    display: none;
+  }
+
+  .teams-header {
+    padding: 0 14px;
+  }
+
+  .teams-search-wrapper {
+    min-width: 180px;
+  }
+
+  .teams-content {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 720px) {
+  .teams-root {
+    flex-direction: column;
+  }
+
+  .teams-rail {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 14px;
+  }
+
+  .teams-rail-logo {
+    margin-bottom: 0;
+    flex-direction: row;
+    gap: 10px;
+    text-align: left;
+  }
+
+  .teams-brand-logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .teams-brand-lockup {
+    gap: 6px;
+  }
+
+  .teams-rail-brand {
+    display: block;
+  }
+
+  .teams-rail-icons {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .teams-header {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px 14px;
+  }
+
+  .teams-search-wrapper {
+    order: 3;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .teams-chat-panel {
+    top: 126px;
+    left: 12px;
+    right: 12px;
+    width: auto;
+  }
+
+  .teams-chat-nudge {
+    top: 136px;
+    left: 12px;
+    right: 12px;
+    width: auto;
+  }
+
+  .teams-emergency-nudge {
+    top: 136px;
+    left: 12px;
+    right: 12px;
+    width: auto;
+  }
+
+  .teams-idle-actions {
+    flex-direction: column;
+  }
+
+  .teams-content {
+    padding: 14px;
+  }
 }
 
 body.dark .status-bar {

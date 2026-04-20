@@ -1,28 +1,28 @@
 import type { User } from "../data/mockUsers";
-
-const STORAGE_KEY = "presence_backend_snapshots";
+import { getAuthHeaders } from "../features/auth/authHeaders";
+const API_BASE_URL =
+  import.meta.env.VITE_PRESENCE_API_URL ?? "http://localhost:5000";
 
 export async function savePresenceSnapshot(users: User[]): Promise<void> {
-  const snapshots = loadSnapshots();
+  const payload = {
+    office: users.filter((user) => user.status === "office").length,
+    remote: users.filter((user) => user.status === "remote").length,
+    client: users.filter((user) => user.status === "client").length,
+    offline: users.filter((user) => user.status === "offline").length,
+    totalUsers: users.length,
+    capturedAt: new Date().toISOString()
+  };
 
-  snapshots.push({
-    timestamp: new Date().toISOString(),
-    users
+  const response = await fetch(`${API_BASE_URL}/presence/snapshots`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      ...getAuthHeaders()
+    },
+    body: JSON.stringify(payload)
   });
 
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(snapshots.slice(-50)));
-}
-
-function loadSnapshots(): Array<{ timestamp: string; users: User[] }> {
-  const raw = localStorage.getItem(STORAGE_KEY);
-
-  if (!raw) {
-    return [];
-  }
-
-  try {
-    return JSON.parse(raw) as Array<{ timestamp: string; users: User[] }>;
-  } catch {
-    return [];
+  if (!response.ok) {
+    throw new Error(`Failed to save presence snapshot (${response.status})`);
   }
 }

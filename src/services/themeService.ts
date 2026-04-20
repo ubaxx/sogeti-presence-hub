@@ -17,7 +17,9 @@ export function saveTheme(theme: AppTheme): void {
 }
 
 export function applyTheme(theme: AppTheme): void {
+  document.documentElement.setAttribute("data-theme", theme);
   document.body.setAttribute("data-theme", theme);
+  document.body.classList.toggle("dark", theme === "dark");
 }
 
 export function toggleTheme(current: AppTheme): AppTheme {
@@ -25,4 +27,10 @@ export function toggleTheme(current: AppTheme): AppTheme {
   saveTheme(next);
   applyTheme(next);
   return next;
+}
+
+export function initializeTheme(): AppTheme {
+  const theme = getSavedTheme();
+  applyTheme(theme);
+  return theme;
 }
